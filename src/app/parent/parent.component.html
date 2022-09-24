@@ -1,0 +1,10 @@
+<div style="background-color: darkcyan">
+  <p>parent works!</p>
+  <input [formControl]="name" id="iss" name="nm" type="text">
+  <button (click)="btnclick()" type="button">click me</button>
+  {{name.value}}
+  <app-child [parentsName]="textName">
+    <h1>I'm Projecting a content from Parent Component.</h1>
+    <p #projectedContent>To work with the Projection component we have to use ng-content tag.</p>
+  </app-child>
+</div>

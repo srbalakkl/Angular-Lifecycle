@@ -1,0 +1,11 @@
+<p>home works!</p>
+
+<p style="display: inline ">Reactive Form Control Input:</p><input [formControl]="fdata" id="id" name="none"
+                                                                   type="text">
+<br>
+<p style="display: inline ">Template Driven Form Input</p><input #template1 name="tempForm" ngModel type="text">
+<button (click)="submit()" type="button">submit</button>
+<p>the input value is {{template1.value}}</p>
+
+
+<button [routerLink]="['/parent']" type="button">parent and child</button>
