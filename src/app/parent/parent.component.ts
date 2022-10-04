@@ -16,6 +16,10 @@ export class ParentComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    setTimeout(() => {
+      this.textName = 'time OUT name'
+      console.log('time out is called')
+    }, 3000)
     console.log('parent ngOnInit is called');
   }
 
@@ -43,6 +47,5 @@ export class ParentComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     console.log('Parents ngOnDestroy is called.')
   }
-
 
 }

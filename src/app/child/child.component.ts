@@ -55,8 +55,7 @@ export class ChildComponent implements OnInit, OnDestroy, OnChanges, AfterConten
      * ngOnChange Will get executed when the  change is detected in the parent component.
      */
     console.log(`ngOnChanges = ${JSON.stringify(changes)}`);
-    // console.log('change');
-    console.log(this.parentsName)
+    console.log('Onchange value ==', this.parentsName)
     console.log('ngOnChanges = ', this.projectedContent)
     console.log('ngOnChanges = ', this.childView)
   }
