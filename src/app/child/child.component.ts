@@ -22,7 +22,10 @@ export class ChildComponent implements OnInit, OnDestroy, OnChanges, AfterConten
 
   //since the template ref variable is in content we can access it in childComponent using @ContentChild
   @ContentChild('projectedContent', {static: true}) projectedContent: any;
-  /** In OnInit, Onchange and DoCheck hook this is defined as undefined hook, But In other hooks
+
+  /**
+   * @desc ContentChild
+   * In OnInit, Onchange and DoCheck hook this is defined as undefined hook, But In other hooks
    * It is defined as an Object reference variable.
    *
    * NOTE: by changing the flag static=true we access it from everywhere including 'ngOnInit' and 'ngOnChange' itself.
@@ -37,6 +40,9 @@ export class ChildComponent implements OnInit, OnDestroy, OnChanges, AfterConten
 
   ngOnInit(): void {
     console.log('child ngOnInit is called');
+    console.log('Parent Name from ngOnInit ',this.parentsName);
+    console.log('projectedContent from ngOnInit = ', this.projectedContent)
+    console.log('childView from ngOnInit = ', this.childView)
   }
 
   /**
@@ -66,7 +72,7 @@ export class ChildComponent implements OnInit, OnDestroy, OnChanges, AfterConten
      * But it is called immediately after the ngOnChanges
      *
      * NOTE: It is important to Not use ngOnChanges and ngDoCheck in the same component.
-     * Becz sometimes ngDoCheck changes will affect the ngOnChange, and It'll become a loop to affect the workflow.d
+     * Becz sometimes ngDoCheck changes will affect the ngOnChange, and It'll become a loop to affect the workflow.
      */
     console.log('child ngDoCheck is called')
     console.log('ngDoCheck = ', this.projectedContent)
