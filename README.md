@@ -1,3 +1,5 @@
+# NOTE: use pnpm (pnpm-lock.yaml) to fix dependency errors.
+
 # AngularLifecycle
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.0.
