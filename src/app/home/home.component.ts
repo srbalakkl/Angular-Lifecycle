@@ -1,4 +1,4 @@
-import {Component, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import {AfterViewInit, Component, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {FormControl} from "@angular/forms";
 
 @Component({
@@ -6,7 +6,7 @@ import {FormControl} from "@angular/forms";
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.sass']
 })
-export class HomeComponent implements OnInit, OnChanges {
+export class HomeComponent implements OnInit, OnChanges, AfterViewInit {
 
   fdata = new FormControl();
 
@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit, OnChanges {
   }
 
   ngOnInit(): void {
-    console.log('oninit is called');
+    console.log('on init is called');
   }
 
   ngAfterViewInit() {
@@ -26,7 +26,8 @@ export class HomeComponent implements OnInit, OnChanges {
   }
 
   submit() {
-    console.log(this.fdata.value);
+    //Reactive Form Values
+    console.log(`the Reactive Form Value is ${this.fdata.value}`);
   }
 
 }

@@ -32,11 +32,12 @@ export class ChildComponent implements OnInit, OnDestroy, OnChanges, AfterConten
   @ViewChild('childView', {static: true}) childView: any;
 
   constructor() {
-    console.log('child constructor is called')
+    console.log('**********child constructor is called*********')
   }
 
   ngOnInit(): void {
-    console.log('child ngOnInit is called');
+    console.log('*******child ngOnInit is called********');
+    console.log('OnInit value ==========', this.parentsName)
   }
 
   /**
@@ -54,10 +55,12 @@ export class ChildComponent implements OnInit, OnDestroy, OnChanges, AfterConten
      * @description
      * ngOnChange Will get executed when the  change is detected in the parent component.
      */
+    console.log('********* ngOnchange ************')
     console.log(`ngOnChanges = ${JSON.stringify(changes)}`);
-    console.log('Onchange value ==', this.parentsName)
+    console.log('Onchange value ==========', this.parentsName)
     console.log('ngOnChanges = ', this.projectedContent)
     console.log('ngOnChanges = ', this.childView)
+    console.log('child view from ng onchange = ', this.childView.nativeElement.value)
   }
 
   ngDoCheck() {
@@ -68,37 +71,37 @@ export class ChildComponent implements OnInit, OnDestroy, OnChanges, AfterConten
      * NOTE: It is important to Not use ngOnChanges and ngDoCheck in the same component.
      * Becz sometimes ngDoCheck changes will affect the ngOnChange, and It'll become a loop to affect the workflow.d
      */
-    console.log('child ngDoCheck is called')
-    console.log('ngDoCheck = ', this.projectedContent)
+    console.log('*******child ngDoCheck is called**********')
+    console.log('The Projected Content is ', this.projectedContent)
     console.log('ngDoCheck = ', this.childView)
   }
 
   ngOnDestroy() {
-    console.log('Child ngOnDestroy is called.');
+    console.log('******* Child ngOnDestroy is called. *********');
   }
 
   ngAfterContentChecked() {
-    console.log('child ngAfterContentChecked is called')
+    console.log('******* child ngAfterContentChecked is called ********')
     console.log('ngAfterContentChecked = ', this.projectedContent)
     console.log('ngAfterContentChecked = ', this.childView)
   }
 
   ngAfterViewChecked() {
-    console.log('child ngAfterViewChecked is called.')
+    console.log('******* child ngAfterViewChecked is called. ********')
     console.log('ngAfterViewChecked = ', this.projectedContent)
     console.log('ngAfterViewChecked = ', this.childView)
   }
 
   ngAfterViewInit(): void {
     // throw new Error('Method not implemented.');
-    console.log('childs ngAfterViewInit')
+    console.log('****** child components ngAfterViewInit ******')
     console.log('ngAfterViewInit = ', this.projectedContent)
     console.log('ngAfterViewInit = ', this.childView)
   }
 
   ngAfterContentInit(): void {
     // throw new Error('Method not implemented.');
-    console.log('childs ngAfterContentInit')
+    console.log('******** child components ngAfterContentInit ******')
     console.log('ngAfterContentInit = ', this.projectedContent)
     console.log('ngAfterContentInit = ', this.childView)
   }
