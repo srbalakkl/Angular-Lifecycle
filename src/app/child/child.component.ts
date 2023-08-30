@@ -5,6 +5,7 @@ import {
   AfterViewInit,
   Component,
   ContentChild,
+  DoCheck,
   Input,
   OnChanges,
   OnDestroy,
@@ -18,7 +19,7 @@ import {
   templateUrl: './child.component.html',
   styleUrls: ['./child.component.sass']
 })
-export class ChildComponent implements OnInit, OnDestroy, OnChanges, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked {
+export class ChildComponent implements OnInit, OnDestroy, DoCheck, OnChanges, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked {
 
   //since the template ref variable is in content we can access it in childComponent using @ContentChild
   @ContentChild('projectedContent', {static: true}) projectedContent: any;
@@ -40,11 +41,10 @@ export class ChildComponent implements OnInit, OnDestroy, OnChanges, AfterConten
 
   ngOnInit(): void {
     console.log('*******child ngOnInit is called********');
-    console.log('OnInit value ==========', this.parentsName)
-    console.log('child ngOnInit is called');
-    console.log('Parent Name from ngOnInit ',this.parentsName);
+    console.log('Parent Name from ngOnInit ', this.parentsName);
     console.log('projectedContent from ngOnInit = ', this.projectedContent)
     console.log('childView from ngOnInit = ', this.childView)
+    console.log('\n\n')
   }
 
   /**
@@ -68,6 +68,7 @@ export class ChildComponent implements OnInit, OnDestroy, OnChanges, AfterConten
     console.log('ngOnChanges = ', this.projectedContent)
     console.log('ngOnChanges = ', this.childView)
     console.log('child view from ng onchange = ', this.childView.nativeElement.value)
+    console.log('\n\n')
   }
 
   ngDoCheck() {
@@ -81,22 +82,26 @@ export class ChildComponent implements OnInit, OnDestroy, OnChanges, AfterConten
     console.log('*******child ngDoCheck is called**********')
     console.log('The Projected Content is ', this.projectedContent)
     console.log('ngDoCheck = ', this.childView)
+    console.log('\n\n')
   }
 
   ngOnDestroy() {
     console.log('******* Child ngOnDestroy is called. *********');
+    console.log('\n\n')
   }
 
   ngAfterContentChecked() {
     console.log('******* child ngAfterContentChecked is called ********')
     console.log('ngAfterContentChecked = ', this.projectedContent)
     console.log('ngAfterContentChecked = ', this.childView)
+    console.log('\n\n')
   }
 
   ngAfterViewChecked() {
     console.log('******* child ngAfterViewChecked is called. ********')
     console.log('ngAfterViewChecked = ', this.projectedContent)
     console.log('ngAfterViewChecked = ', this.childView)
+    console.log('\n\n')
   }
 
   ngAfterViewInit(): void {
@@ -104,6 +109,7 @@ export class ChildComponent implements OnInit, OnDestroy, OnChanges, AfterConten
     console.log('****** child components ngAfterViewInit ******')
     console.log('ngAfterViewInit = ', this.projectedContent)
     console.log('ngAfterViewInit = ', this.childView)
+    console.log('\n\n')
   }
 
   ngAfterContentInit(): void {
@@ -111,6 +117,7 @@ export class ChildComponent implements OnInit, OnDestroy, OnChanges, AfterConten
     console.log('******** child components ngAfterContentInit ******')
     console.log('ngAfterContentInit = ', this.projectedContent)
     console.log('ngAfterContentInit = ', this.childView)
+    console.log('\n\n')
   }
 
 }
